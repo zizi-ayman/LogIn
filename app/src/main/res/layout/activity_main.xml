@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/usernamefield"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="474dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fontFamily="sans-serif-light"
+        android:hint="Username"
+        android:textColor="#FF192133"
+        android:textColorHint="#A0192133" />
+
+    <EditText
+        android:id="@+id/passwordfield"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="283dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="408dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fontFamily="sans-serif-light"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="#FF192133"
+        android:textColorHint="#A0192133" />
+
+    <EditText android:id="@+id/editEmail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:inputType="textEmailAddress"
+        android:textColor="#FF192133"
+        android:visibility="gone"
+        android:textColorHint="#A0192133"
+        android:fontFamily="sans-serif-light"
+        android:hint="Email"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="317dp"
+        android:background="@drawable/roundbtn"
+        android:text="LOG IN"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/in"
+        android:layout_width="365dp"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="603dp"
+        android:gravity="center"
+        android:text="LOG IN"
+        android:textColor="#F06220"
+        android:textSize="34sp" />
+
+</RelativeLayout>
