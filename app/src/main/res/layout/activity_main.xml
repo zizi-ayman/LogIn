@@ -96,7 +96,7 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:fontFamily="@font/lexenddecablack"
-                android:hint="Username"
+                android:hint="Email"
                 android:inputType="text"
                 android:textColor="#F5F6F8"
                 android:drawableRight="@drawable/iconemail"

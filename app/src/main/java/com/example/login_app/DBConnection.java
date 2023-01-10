@@ -22,7 +22,7 @@ public class DBConnection {
 
     public JSONObject makeHttpRequest(String user_name, String password, String email) {
         JSONObject jObj = null;
-        String url1 = "Your URL";
+        String url1 = "http://192.168.43.111/login-server/index.php";
         try {
             URL url = new URL(url1);
             HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
@@ -33,8 +33,12 @@ public class DBConnection {
             OutputStream outputStream = httpURLConnection.getOutputStream();
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
             String post_data;
-            if (email.length()<=0){
-                Log.e("TAG", " makeHttpRequest:no email ");
+
+            if(user_name.length() != 0 && email.length() == 0 && password.length() == 0){
+                Log.e("TAG", " 41  ");
+                post_data = URLEncoder.encode("msg","UTF-8")+"="+URLEncoder.encode(user_name,"UTF-8");
+            }else if (email.length() <= 0){
+                //Log.e("TAG", " makeHttpRequest:no email ");
                 post_data = URLEncoder.encode("username","UTF-8")+"="+URLEncoder.encode(user_name,"UTF-8")+"&"
                         +URLEncoder.encode("password","UTF-8")+"="+URLEncoder.encode(password,"UTF-8");
             }else{
@@ -54,6 +58,7 @@ public class DBConnection {
             while((line = bufferedReader.readLine())!= null) {
                 sb.append(line);
             }
+            Log.e("TAG", " 57  "+sb.toString());
             jObj = new JSONObject(sb.toString());
             bufferedReader.close();
             inputStream.close();

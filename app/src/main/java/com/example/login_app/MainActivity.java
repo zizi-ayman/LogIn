@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     TextView infield, errorfield, answer, question;
     TextInputLayout emailcontainer;
     Button loginbtn;
-    String msg ="";
+    String msg ="",batteryinfo="";
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -109,11 +109,15 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(JSONObject result) {
             try {
                 if (result != null) {
-                    //Toast.makeText(getApplicationContext(),result.getString("message"),Toast.LENGTH_LONG).show();
+                    errorfield.setText("exists");
                     msg = result.getString("message");
+                    Log.e("TAG", "onPostExecute: 114 "+msg.equals("Error in registering. Probably the username or email already exists"));
+                    //Toast.makeText(getApplicationContext(),result.getString("message"),Toast.LENGTH_LONG).show();
                     errorfield.setVisibility(View.VISIBLE);
                     errorfield.setTextColor(Color.parseColor("#ff000d"));
-                    if(msg.equals("Error in registering. Probably the username/email already exists")){
+                    Log.e("TAG", "onPostExecute: 119 "+msg.equals("Error in registering. Probably the username or email already exists"));
+                    if(msg.equals("Error in registering. Probably the username or email already exists")){
+                        Log.e("TAG", "onPostExecute: 120" );
                         errorfield.setText("the username or email already exists");
                     }else if(msg.equals("Error in registering. Email Address is not valid")){
                         errorfield.setText("Email Address is not valid");
@@ -121,11 +125,12 @@ public class MainActivity extends AppCompatActivity {
                     else if(msg.equals("Incorrect details")){
                         errorfield.setText("Incorrect details");
                     }else{
-                        msg = "Hello "+usernamefield.getText().toString();
+                        batteryinfo = result.getString("result");
+                        msg = "Hello "+usernamefield.getText().toString()+" "+batteryinfo;
                         openMenu();
                     }
                 } else {
-                    msg = result.getString("message");
+                    //msg = result.getString("message");
                     errorfield.setVisibility(View.VISIBLE);
                     errorfield.setText("Unable to retrieve any data from server");
                     //Toast.makeText(getApplicationContext(), "Unable to retrieve any data from server", Toast.LENGTH_LONG).show();

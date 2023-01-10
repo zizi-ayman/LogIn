@@ -8,14 +8,15 @@
     tools:context=".Menu">
 
     <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="376dp"
+        android:layout_width="367dp"
+        android:layout_height="590dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225">
+        app:layout_constraintVertical_bias="0.201">
 
         <TextView
             android:id="@+id/msgfield"
@@ -26,14 +27,60 @@
             android:textColor="#EFE8E8"
             android:textSize="20sp" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#F5F6F8"
+            android:textColorHint="#62678c">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sendmsgfield"
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:background="@drawable/roundinput"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/lexenddecablack"
+                android:hint="Entre Message Here"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="#F5F6F8"
+                android:textColorHint="#62678c">
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/errorfield"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:fontFamily="@font/lexenddecablack"
+            android:textAlignment="center"
+            android:textColor="#D66A6A"
+            android:textSize="20sp" />
+
         <Button
-            android:id="@+id/logoutbtn"
+            android:id="@+id/sendnote"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="100dp"
             android:background="@drawable/roundbtn"
             android:fontFamily="@font/lexenddecablack"
+            android:text="Send Notification"
+            android:textColor="#FBF7F7" />
+
+        <Button
+            android:id="@+id/logoutbtn"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/roundbtn"
+            android:fontFamily="@font/lexenddecablack"
             android:text="LogOut"
             android:textColor="#FBF7F7" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
