@@ -32,7 +32,7 @@
             $isExisting = $this->isEmailUsernameExist($username, $email);
             if($isExisting){
                 $json['success'] = 0;
-                $json['message'] = "Error in registering. Probably the username/email already exists";
+                $json['message'] = "Error in registering. Probably the username or email already exists";
             }else{   
                 $isValid = $this->isValidEmail($email);
                     if($isValid){
@@ -43,7 +43,7 @@
                         $json['message'] = "Successfully registered the user";
                     }else{
                         $json['success'] = 0;
-                        $json['message'] = "Error in registering. Probably the username/email already exists";   
+                        $json['message'] = "Error in registering. Probably the username or email already exists";   
                     }
                     mysqli_close($this->db->getDb());
                     }else{
@@ -53,12 +53,28 @@
                 }
             return $json;
         }
+        public function getbatteryinfo(){     
+            $connect = mysqli_connect("localhost","root","","login-db");
+            $query = "SELECT * FROM `battery-status` WHERE 1";
+            $result = mysqli_query($connect, $query);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $searchresult = "your battery Level is: ".$row["battery-lvl"]." in: ".$row["time"];
+                }
+              } else {
+                $searchresult = "No Battery Info";
+              }
+            mysqli_close($connect);
+            return $searchresult;
+        }
         public function loginUsers($username, $password){
             $json = array();
             $canUserLogin = $this->isLoginExist($username, $password);
             if($canUserLogin){
                 $json['success'] = 1;
                 $json['message'] = "Successfully logged in";
+                $json['result'] = $this->getbatteryinfo();
             }else{
                 $json['success'] = 0;
                 $json['message'] = "Incorrect details";
